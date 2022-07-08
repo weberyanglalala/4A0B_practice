@@ -1,5 +1,9 @@
-* {
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Roboto+Mono&display=swap');
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+input {
+    font-family: 'Roboto Mono', monospace;
 }
 .h1-title {
     font-size: 2rem;
@@ -77,16 +81,19 @@
 }
 .guess-title {
     display: inline-block;
-    padding: 8px 12px;
+    padding: 0 12px;
     background-color: #ccc;
+    line-height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .guess-answer {
     display: block;
-    line-height: 30px;
-    font-size: 20px;
+    padding-left: .5rem;
+    font-size: 1rem;
+    line-height: 28px;
     border: none;
     flex-grow: 1;
-    padding: 0 1rem;
 }
 .guess-answer:focus {
     outline: none;
@@ -95,4 +102,6 @@
     line-height: 30px;
     padding: 0 16px;
     flex-grow: 0;
+    border: none;
+    border-left: 1px solid rgb(224, 217, 217);
 }
