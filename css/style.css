@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&family=Roboto+Mono&display=swap');
+
 body {
     font-family: 'Roboto Mono', monospace;
 }
-input {
+input:focus {
     font-family: 'Roboto Mono', monospace;
 }
 .h1-title {
@@ -12,7 +13,7 @@ input {
     margin-bottom: 1rem;
 }
 .main {
-    width: 100%;
+    width: calc(100% - 30px);
     max-width: 768px;
     margin: 0 auto;
     padding: 0 15px;
@@ -29,6 +30,11 @@ input {
     padding: 8px 0;
     transition: background-color .3s ease;
 }
+.btn-disabled {
+    cursor: pointer;
+    pointer-events: none;
+    background-color: #ccc;
+}
 .btn:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -37,7 +43,7 @@ input {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.btn:hover {
+.btn:active, .btn:hover {
     background-color: #ccc;
 }
 
@@ -78,6 +84,7 @@ input {
     align-items: center;
     border: 1px solid rgb(224, 217, 217);
     border-radius: 5px;
+    margin-bottom: 2rem;
 }
 .guess-title {
     display: inline-block;
