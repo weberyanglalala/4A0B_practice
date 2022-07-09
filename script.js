@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('#start')
 const resetBtn = document.querySelector('#reset')
-const showAnswer = document.querySelector('#showAnswer')
+const showAnswerBtn = document.querySelector('#showAnswer')
 const guess = document.querySelector('#guess')
 const guessBtn = document.querySelector('#guessBtn')
 const recordGroup = document.querySelector('.record-group')
@@ -16,7 +16,11 @@ startBtn.addEventListener('click', () => {
     ResetGame()
 })
 resetBtn.addEventListener('click', () => {
-    ResetGame()
+    GameInitialize()
+    ShowHint(goal.join(""))
+})
+showAnswerBtn.addEventListener('click', () => {
+    ShowHint(goal.join(""))
 })
 function GenerateGoal() {
     let num = 0
@@ -95,10 +99,12 @@ function DisplayRecord(badge, badgeClass, input) {
 }
 function ResetGame() {
     resetBtn.classList.remove("btn-disabled")
-    showAnswer.classList.remove("btn-disabled")
+    showAnswerBtn.classList.remove("btn-disabled")
     guess.classList.remove("btn-disabled")
     guessBtn.classList.remove("btn-disabled")
     startBtn.classList.add('btn-disabled')
+
+    RemoveHint()
 
     recordGroup.innerHTML = ""
     guess.value = ""
@@ -109,9 +115,10 @@ function ResetGame() {
 function GameInitialize() {
     startBtn.classList.remove('btn-disabled')
     resetBtn.classList.add("btn-disabled")
-    showAnswer.classList.add("btn-disabled")
+    showAnswerBtn.classList.add("btn-disabled")
     guess.classList.add("btn-disabled")
     guessBtn.classList.add("btn-disabled")
+    RemoveHint()
 }
 function ShowHint(msg) {
     hint.innerHTML = 
@@ -121,5 +128,5 @@ function ShowHint(msg) {
     </div>`
 }
 function RemoveHint() {
-    hint.removeChild(document.querySelector('.hint-msg'))
+    if (hint.hasChildNodes()) hint.removeChild(document.querySelector('.hint-msg'))
 }
