@@ -91,6 +91,7 @@ function CheckAnswer(guessing, answer) {
   }
   else {
     DisplayRecord(`${A}A${B}B`, 'badge-wrong', `${guessing}`)
+    guess['value'] = ""
   }
 }
 function DisplayRecord(badge, badgeClass, input) {
