@@ -9,7 +9,7 @@ let goal = GenerateGoal()
 let guessToIntArr = []
 GameInitialize()
 guessBtn.addEventListener('click', () => {
-    guessToIntArr = [...guess['value']].map(num => Number(num))
+    guessToIntArr = [...guess['value']].map(num => { Number(num) })
     if (CheckValid()) CheckAnswer(guessToIntArr, goal)
 })
 startBtn.addEventListener('click', () => {
@@ -42,7 +42,11 @@ function CheckValid() {
         if (!a.includes(b)) a.push(b)
         return a
     }, [])
-
+    if(/\s/.test(guess['value'])) {
+      ShowHint('輸入字數含有空白字元')
+      guess.value = ""
+      return false
+    }
     if (guess.value.length !== 4) {
         ShowHint('數入字數長度不為 4')
         guess.value = ""
